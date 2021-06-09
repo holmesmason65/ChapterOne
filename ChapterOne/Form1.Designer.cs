@@ -47,7 +47,7 @@ namespace ChapterOne
             this.txtZip = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.grpTime = new System.Windows.Forms.GroupBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtElapsedTime = new System.Windows.Forms.TextBox();
             this.timSeconds = new System.Windows.Forms.Timer(this.components);
             this.grpMail.SuspendLayout();
             this.grpTime.SuspendLayout();
@@ -129,6 +129,7 @@ namespace ChapterOne
             this.btnAccept.TabIndex = 8;
             this.btnAccept.Text = "Accept";
             this.btnAccept.UseVisualStyleBackColor = true;
+            this.btnAccept.Click += new System.EventHandler(this.btnAccept_Click);
             // 
             // btnClear
             // 
@@ -138,6 +139,7 @@ namespace ChapterOne
             this.btnClear.TabIndex = 9;
             this.btnClear.Text = "Clear";
             this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // btnStart
             // 
@@ -183,6 +185,7 @@ namespace ChapterOne
             this.grpMail.Controls.Add(this.btnAccept);
             this.grpMail.Controls.Add(this.txtCity);
             this.grpMail.Controls.Add(this.txtState);
+            this.grpMail.Enabled = false;
             this.grpMail.Location = new System.Drawing.Point(27, 24);
             this.grpMail.Name = "grpMail";
             this.grpMail.Size = new System.Drawing.Size(313, 264);
@@ -209,7 +212,7 @@ namespace ChapterOne
             // 
             // grpTime
             // 
-            this.grpTime.Controls.Add(this.textBox1);
+            this.grpTime.Controls.Add(this.txtElapsedTime);
             this.grpTime.Controls.Add(this.btnStart);
             this.grpTime.Controls.Add(this.btnPause);
             this.grpTime.Controls.Add(this.btnExit);
@@ -220,20 +223,21 @@ namespace ChapterOne
             this.grpTime.TabStop = false;
             this.grpTime.Text = "Elapsed Time";
             // 
-            // textBox1
+            // txtElapsedTime
             // 
-            this.textBox1.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.textBox1.Location = new System.Drawing.Point(69, 56);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 33);
-            this.textBox1.TabIndex = 17;
-            this.textBox1.TabStop = false;
-            this.textBox1.Text = "00:00:00";
-            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtElapsedTime.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.txtElapsedTime.Location = new System.Drawing.Point(69, 56);
+            this.txtElapsedTime.Name = "txtElapsedTime";
+            this.txtElapsedTime.Size = new System.Drawing.Size(100, 33);
+            this.txtElapsedTime.TabIndex = 17;
+            this.txtElapsedTime.TabStop = false;
+            this.txtElapsedTime.Text = "00:00:00";
+            this.txtElapsedTime.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // timSeconds
             // 
             this.timSeconds.Interval = 1000;
+            this.timSeconds.Tick += new System.EventHandler(this.timSeconds_Tick);
             // 
             // frmMailingList
             // 
@@ -272,7 +276,7 @@ namespace ChapterOne
         private System.Windows.Forms.TextBox txtZip;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.GroupBox grpTime;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtElapsedTime;
         private System.Windows.Forms.Timer timSeconds;
     }
 }
